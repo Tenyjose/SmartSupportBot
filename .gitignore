@@ -1,7 +1,8 @@
-# Ignore sensitive files
-credentials.yml
-.env
+venv/
 __pycache__/
 *.pyc
-.DS_Store
-*.db
+*.pyd
+*.log
+.env
+user_logs.db
+*.sqlite
