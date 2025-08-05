@@ -1,0 +1,39 @@
+version: "3.1"
+
+stories:
+  - story: greeting
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - story: booking path
+    steps:
+      - intent: book_appointment
+      - action: booking_form
+      - active_loop: booking_form
+      - active_loop: null
+      - action: action_submit_appointment
+      - action: utter_appointment_booked
+
+  - story: check appointment
+    steps:
+      - intent: check_appointment
+      - action: utter_checking_appointment
+      - action: action_check_appointment
+
+  - story: doctor info
+    steps:
+      - intent: doctor_info
+      - action: utter_ask_doctor
+      - action: action_doctor_info
+
+  - story: symptom check
+    steps:
+      - intent: symptom_check
+      - action: action_symptom_check
+
+  - story: handover to human
+    steps:
+      - intent: handover_human
+      - action: utter_handover
+      - action: action_log_handover

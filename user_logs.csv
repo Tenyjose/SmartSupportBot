@@ -1,0 +1,9 @@
+timestamp,intent,user_message,department,date,time,doctor,symptom
+2025-08-04 07:34:25,symptom_check,I have a headache,Cardiology,,,,headache
+2025-08-04 08:15:36,handover_human,I want to talk to a human,,,,,
+2025-08-04 15:51:24,symptom_check,I have a headache,,,,,headache
+2025-08-04 16:28:44,symptom_check,I feel dizzy,,,,,dizzy
+2025-08-04 16:59:05,symptom_check,I feel dizzy,,,,,dizzy
+2025-08-04 20:05:05,doctor_info,Tell me about dr.Taylor,Cardiology,August 2025,1:30,dr.Taylor,dizzy
+2025-08-04 20:07:22,doctor_info,Tell me about Dr.Taylor,Cardiology,August 2025,1:30,Dr.Taylor,dizzy
+2025-08-04 20:14:39,doctor_info,Tell me about Dr.Taylor,Cardiology,August 2025,1:30,Dr.Taylor,dizzy

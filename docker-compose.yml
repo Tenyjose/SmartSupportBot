@@ -1,0 +1,38 @@
+version: '3.1'
+
+services:
+  rasa:
+    build:
+      context: .
+      dockerfile: Dockerfile.rasa  # custom Dockerfile that includes fixed_twilio
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./domain.yml:/app/domain.yml
+      - ./config.yml:/app/config.yml
+      - ./credentials.yml:/app/credentials.yml
+      - ./endpoints.yml:/app/endpoints.yml
+      - ./fixed_twilio:/app/fixed_twilio   # ✅ make sure the custom channel code is mounted
+    command: >
+      run
+      --enable-api
+      --cors "*"
+      --debug
+    depends_on:
+      - action_server
+
+  action_server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5055:5055"
+    environment:
+      - DOCTOR_API_BASE=http://host.docker.internal:8000
+      - DB_PATH=/app/user_logs.db
+    volumes:
+      - ./actions:/app/actions
+      - ./requirements.txt:/app/requirements.txt
+      - ./user_logs.db:/app/user_logs.db

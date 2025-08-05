@@ -1,0 +1,98 @@
+version: "3.1"
+
+intents:
+  - greet
+  - book_appointment
+  - check_appointment
+  - doctor_info
+  - symptom_check
+  - handover_human
+  - affirm
+  - deny
+  - provide_department
+  - provide_date
+  - provide_time
+
+entities:
+  - department
+  - preferred_date
+  - preferred_time
+  - doctor_name
+  - symptom
+
+slots:
+  department:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: department
+
+  preferred_date:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: preferred_date
+
+  preferred_time:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: preferred_time
+
+  doctor_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: doctor_name
+
+  symptom:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: symptom
+
+responses:
+  utter_greet:
+    - text: "Hi! How can I assist you today?"
+
+  utter_ask_department:
+    - text: "Which department do you want to book an appointment for?"
+
+  utter_ask_preferred_date:
+    - text: "Which date do you prefer?"
+
+  utter_ask_preferred_time:
+    - text: "What time would you prefer?"
+
+  utter_appointment_booked:
+    - text: "Your appointment for {department} has been booked on {preferred_date} at {preferred_time}."
+
+  utter_checking_appointment:
+    - text: "Checking your upcoming appointment..."
+
+  utter_ask_doctor:
+    - text: "Which doctor would you like information about?"
+
+  utter_doctor_details:
+    - text: "Here are the details of Dr. {doctor_name}."
+
+  utter_symptom_advice:
+    - text: "Could you please describe your symptom?"
+
+  utter_handover:
+    - text: "Connecting you to a human assistant now..."
+
+actions:
+  - action_check_appointment
+  - validate_booking_form
+  - action_submit_appointment
+  - action_doctor_info
+  - action_symptom_check
+  - action_log_handover
+
+forms:
+  booking_form:
+    required_slots:
+      - department
+      - preferred_date
+      - preferred_time

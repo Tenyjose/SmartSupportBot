@@ -1,0 +1,45 @@
+version: "3.1"
+
+rules:
+  - rule: Greet the user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Activate booking form
+    steps:
+      - intent: book_appointment
+      - action: booking_form
+      - active_loop: booking_form
+
+  - rule: Submit booking form
+    condition:
+      - active_loop: booking_form
+    steps:
+      - action: booking_form
+      - active_loop: null
+      - action: action_submit_appointment
+      - action: utter_appointment_booked
+
+  - rule: Check appointment
+    steps:
+      - intent: check_appointment
+      - action: utter_checking_appointment
+      - action: action_check_appointment
+
+  - rule: Provide doctor info
+    steps:
+      - intent: doctor_info
+      - action: utter_ask_doctor
+      - action: action_doctor_info
+
+  - rule: Symptom checker
+    steps:
+      - intent: symptom_check
+      - action: action_symptom_check
+
+  - rule: Handover to human
+    steps:
+      - intent: handover_human
+      - action: utter_handover
+      - action: action_log_handover

@@ -1,0 +1,104 @@
+version: "3.1"
+
+nlu:
+
+- intent: greet
+  examples: |
+    - hello
+    - hi
+    - good morning
+    - hey
+    - good evening
+
+- intent: book_appointment
+  examples: |
+    - I want to book an appointment
+    - Can I see a doctor?
+    - I need to schedule a checkup
+    - Book me for [dermatology](department)
+    - I’d like an appointment with a [cardiologist](department)
+    - I want to book an appointment with [Cardiology](department)
+    - Book an appointment for [Dermatology](department)
+    - I need to see a [Neurology](department) doctor
+    - Please schedule me for [Orthopedics](department)
+    - I want to visit [Pediatrics](department)
+
+- intent: provide_department
+  examples: |
+    - [Cardiology](department)
+    - [Dermatology](department)
+    - [Neurology](department)
+    - [Orthopedics](department)
+    - [Pediatrics](department)
+
+- intent: provide_date
+  examples: |
+    - [Monday](preferred_date)
+    - [August 5](preferred_date)
+    - [Next Friday](preferred_date)
+    - [Tomorrow](preferred_date)
+    - [12th August](preferred_date)
+
+- intent: provide_time
+  examples: |
+    - [10 AM](preferred_time)
+    - [2:30 PM](preferred_time)
+    - [Evening](preferred_time)
+    - [9 in the morning](preferred_time)
+    - [5 PM](preferred_time)
+
+- intent: check_appointment
+  examples: |
+    - Check my appointment
+    - When is my next appointment?
+    - Do I have any appointments?
+    - Can you show me my appointment?
+    - Any appointments scheduled?
+
+- intent: doctor_info
+  examples: |
+    - Tell me about [Dr. Smith](doctor_name)
+    - Who is [Dr. Adams](doctor_name)?
+    - Give me info about [Dr. Johnson](doctor_name)
+    - I need details about [Dr. Brown](doctor_name)
+    - What does [Dr. Taylor](doctor_name) specialize in?
+    - Can you tell me about [Dr. White](doctor_name)?
+
+
+- intent: handover_human
+  examples: |
+    - I want to talk to someone
+    - Connect me to a real person
+    - Can I speak to an agent?
+    - human please
+
+- intent: affirm
+  examples: |
+    - yes
+    - sure
+    - okay
+    - alright
+    - yup
+
+- intent: deny
+  examples: |
+    - no
+    - not now
+    - maybe later
+    - nope
+  
+- intent: symptom_check
+  examples: |
+    - I have a [headache](symptom)
+    - I'm experiencing [fever](symptom)
+    - I feel [nauseous](symptom)
+    - I'm suffering from [back pain](symptom)
+    - I have [stomach ache](symptom)
+    - I'm dealing with [cough](symptom)
+    - I have a [sore throat](symptom)
+    - I feel [dizzy](symptom)
+    - What should I do for [chest pain](symptom)?
+    - Can you help me with my [cold](symptom)?
+    - I think I have [flu](symptom)
+    - Suggestions for [fatigue](symptom)
+
